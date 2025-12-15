@@ -15,10 +15,8 @@ body {
     align-items: center;
     background: radial-gradient(circle at top right, #1e1e24, #121212);
     overflow: hidden;
-    /* Prevents scroll when sidebar opens */
 }
 
-/* Wrapper to hold calc and sidebar relative to each other */
 .wrapper {
     position: relative;
     display: flex;
@@ -36,8 +34,6 @@ body {
     z-index: 10;
     transition: transform 0.3s ease;
 }
-
-/* History Toggle Button */
 .btn-history-toggle {
     position: absolute;
     top: 15px;
@@ -57,17 +53,14 @@ body {
     transform: none;
 }
 
-/* --- History Panel Styling --- */
 .history-panel {
     position: absolute;
     top: 0;
     right: 0;
-    /* Align to right edge of calculator */
     width: 280px;
     height: 100%;
     background: #181a20;
     border-radius: 0 20px 20px 0;
-    /* Rounded corners on right */
     box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.2);
     z-index: 5;
     /* Behind calculator */
@@ -80,8 +73,6 @@ body {
     padding: 20px;
     border-left: 1px solid #333;
 }
-
-/* Active State for History */
 .wrapper.history-open .history-panel {
     opacity: 1;
     visibility: visible;
@@ -274,4 +265,5 @@ button:active {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
