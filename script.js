@@ -6,7 +6,6 @@ class Calculator {
         this.clear();
         this.updateHistoryUI(); // Load history on start
     }
-
     clear() {
         this.currentOperand = '0';
         this.previousOperand = '';
@@ -62,14 +61,9 @@ class Calculator {
                 break;
             default: return;
         }
-
-        // --- HISTORY LOGIC START ---
-        // Round long decimals to avoid messy history
         let result = Math.round(computation * 10000) / 10000;
 
         this.addToHistory(prev, this.operation, current, result);
-        // --- HISTORY LOGIC END ---
-
         this.currentOperand = result;
         this.operation = undefined;
         this.previousOperand = '';
@@ -210,4 +204,5 @@ document.addEventListener('keydown', (e) => {
         calculator.chooseOperation(op);
         calculator.updateDisplay();
     }
+
 });
