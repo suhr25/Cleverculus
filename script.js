@@ -2,9 +2,9 @@ class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
-        this.history = JSON.parse(localStorage.getItem('calc_history')) || []; // Load from local storage
+        this.history = JSON.parse(localStorage.getItem('calc_history')) || []; 
         this.clear();
-        this.updateHistoryUI(); // Load history on start
+        this.updateHistoryUI(); 
     }
     clear() {
         this.currentOperand = '0';
@@ -79,13 +79,12 @@ class Calculator {
             })
         };
 
-        // Add to beginning of array
+      
         this.history.unshift(entry);
 
-        // Limit to last 20 items to save space
         if (this.history.length > 20) this.history.pop();
 
-        // Save to browser memory
+     
         localStorage.setItem('calc_history', JSON.stringify(this.history));
 
         this.updateHistoryUI();
@@ -93,7 +92,7 @@ class Calculator {
 
     updateHistoryUI() {
         const historyList = document.getElementById('history-list');
-        historyList.innerHTML = ''; // Clear current list
+        historyList.innerHTML = ''; 
 
         if (this.history.length === 0) {
             historyList.innerHTML = '<p class="empty-msg">No history yet.</p>';
@@ -129,12 +128,11 @@ class Calculator {
     }
 }
 
-// Select Elements
+
 const previousOperandTextElement = document.getElementById('previous-operand');
 const currentOperandTextElement = document.getElementById('current-operand');
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
-// UI Event Listeners
 document.querySelectorAll('[data-number]').forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText);
@@ -164,7 +162,6 @@ document.querySelector('[data-action="delete"]').addEventListener('click', () =>
     calculator.updateDisplay();
 });
 
-// History Toggle Logic
 const wrapper = document.querySelector('.wrapper');
 const historyBtn = document.getElementById('history-btn');
 const clearHistoryBtn = document.getElementById('clear-history');
@@ -179,7 +176,7 @@ clearHistoryBtn.addEventListener('click', () => {
     }
 });
 
-// Keyboard Support
+
 document.addEventListener('keydown', (e) => {
     if ((e.key >= 0 && e.key <= 9) || e.key === '.') {
         calculator.appendNumber(e.key);
@@ -206,3 +203,4 @@ document.addEventListener('keydown', (e) => {
     }
 
 });
+
