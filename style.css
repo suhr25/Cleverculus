@@ -4,7 +4,6 @@
     padding: 0;
     font-family: 'JetBrains Mono', monospace;
 }
-
 body {
     background-color: #121212;
     color: white;
@@ -102,7 +101,6 @@ body {
     padding: 5px;
     font-size: 0.9rem;
 }
-
 .history-list {
     flex-grow: 1;
     overflow-y: auto;
@@ -111,7 +109,6 @@ body {
     gap: 15px;
 }
 
-/* Scrollbar for history */
 .history-list::-webkit-scrollbar {
     width: 5px;
 }
